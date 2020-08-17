@@ -80,16 +80,14 @@ finalScore(inning, 9) might return:
 */ 
 
 function finalScore(callback, num){
-  let score = {
-    "Home": 0,
-    "Away": 0
-  };
+  let home = 0;
+  let away = 0;
 
   for(let i = 0; i < num; i++) {
-    score.Home += callback();
-    score.Away += callback();
+    home += callback();
+    away += callback();
   }
-  return score;
+  return {home, away};
 
 }
 console.log(finalScore(inning, 9));
@@ -114,19 +112,23 @@ and returns the score at each points in the game, like so:
 9th inning: awayTeam - homeTeam
 Final Score: awayTeam - homeTeam */
 
-
-function scoreboard(callback, num) {
-  let score = {
-    "Home": 0,
-    "Away": 0
-  };
-
+function getInningScore(callback22){
+  
+  let home = 0;
+  let away = 0;
+  
   for(let i = 1; i < 10; i++) {
-    score.Home += callback();
-    score.Away += callback();
-    console.log(`${i}st inning: Away: ${score["Away"]} - Home: ${score["Home"]}`)
+    home += callback22();
+    away += callback22();
+    console.log(`${i}st inning: Away: ${away} - Home: ${home}`)
   }
-  return `Final Score: Away: ${score["Away"]} - Home: ${score["Home"]}`;
+  return {home, away};
 }
 
-console.log(scoreboard(inning, 9));
+function scoreboard(callback1, callback2, num) {
+  
+  const score = callback1(callback2);
+  return `Final Score: Away: ${score.away} - Home: ${score.home}`;
+}
+
+console.log(scoreboard(getInningScore, inning, 9));

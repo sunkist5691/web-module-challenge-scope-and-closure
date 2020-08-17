@@ -42,7 +42,7 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
-Closure is a function that use a variable outside of the scope of function.
+Closure is a nested function that use a variable outside of the scope of function.
 
 2. Study the following code, then answer the questions below.
 
@@ -66,13 +66,13 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
-Closure used after the return statement of function personalDice and brought parameter name into console.
+Closure: after the return statement of function personalDice and brought parameter name into console.
 
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
 The name is same but the dice roll isn't same.
 
 c. What is the lexical scope of `newRoll`? 
-The scope of newRoll is inside of anonymous function only.
+The scope of newRoll is inside of anonymous function and personalDice function.
 
 ### Task 2c - Exit Ticket
 
