@@ -115,14 +115,20 @@ Final Score: awayTeam - homeTeam */
 
 function getInningScore(cb3){
   
+  // The array that saves a home and away scores in object format
   const listScore = [];
   
   for(let i = 1; i < 10; i++) {
 
     const curScore = {};
+
+    // Add home and away score in object
     curScore.home = cb3();
     curScore.away = cb3();
+
+    // Add object of home and away scsore to array listScore
     listScore.push(curScore);
+
     console.log(`${i}st inning: Away: ${curScore.away} - Home: ${curScore.home}`)
 
   }
@@ -131,13 +137,15 @@ function getInningScore(cb3){
 
 function scoreboard(cb1, cb2, num) {
   
+  // Received a list of scores from each innings
   const scores = cb1(cb2);
-  
+
   let homeFinal = 0;
   let awayFinal = 0;
-  
-  for(let i = 0; i < num; i++) {
 
+  // Total up the home scores and away scores
+  for(let i = 0; i < num; i++) {
+    
     homeFinal += scores[i].home;
     awayFinal += scores[i].away;
 
