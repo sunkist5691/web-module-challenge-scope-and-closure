@@ -122,11 +122,11 @@ function getInningScore(cb3){
 
     const curScore = {};
 
-    // Add home and away score in object
+    // Add home and away scores in object
     curScore.home = cb3();
     curScore.away = cb3();
 
-    // Add object of home and away scsore to array listScore
+    // Add object of home and away scores to array listScore
     listScore.push(curScore);
 
     console.log(`${i}st inning: Away: ${curScore.away} - Home: ${curScore.home}`)
