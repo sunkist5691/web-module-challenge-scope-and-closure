@@ -80,6 +80,7 @@ finalScore(inning, 9) might return:
 */ 
 
 function finalScore(callback, num){
+
   let home = 0;
   let away = 0;
 
@@ -112,23 +113,37 @@ and returns the score at each points in the game, like so:
 9th inning: awayTeam - homeTeam
 Final Score: awayTeam - homeTeam */
 
-function getInningScore(callback22){
+function getInningScore(cb3){
   
-  let home = 0;
-  let away = 0;
+  const listScore = [];
   
   for(let i = 1; i < 10; i++) {
-    home += callback22();
-    away += callback22();
-    console.log(`${i}st inning: Away: ${away} - Home: ${home}`)
+
+    const curScore = {};
+    curScore.home = cb3();
+    curScore.away = cb3();
+    listScore.push(curScore);
+    console.log(`${i}st inning: Away: ${curScore.away} - Home: ${curScore.home}`)
+
   }
-  return {home, away};
+  return listScore;
 }
 
-function scoreboard(callback1, callback2, num) {
+function scoreboard(cb1, cb2, num) {
   
-  const score = callback1(callback2);
-  return `Final Score: Away: ${score.away} - Home: ${score.home}`;
+  const scores = cb1(cb2);
+  
+  let homeFinal = 0;
+  let awayFinal = 0;
+  
+  for(let i = 0; i < num; i++) {
+
+    homeFinal += scores[i].home;
+    awayFinal += scores[i].away;
+
+  }
+  
+  return `Final Score: Away: ${awayFinal} - Home: ${homeFinal}`;
 }
 
 console.log(scoreboard(getInningScore, inning, 9));
